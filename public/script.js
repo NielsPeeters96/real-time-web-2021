@@ -1,4 +1,3 @@
-
 const tweetStream = document.getElementById('tweetStream')
 const socket = io()
 

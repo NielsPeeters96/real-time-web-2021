@@ -1,11 +1,25 @@
+const http = require('http')
+const path = require('path')
+const express = require('express')
+const socketIo = require('socket.io')
 const needle = require('needle')
 const config = require('dotenv').config()
 const TOKEN = process.env.TWITTER_BEARER_TOKEN
+const PORT = process.env.PORT || 3000
+
+const app = express()
+
+const server = http.createServer(app)
+const io = socketIo(server)
+
+app.get ('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../', 'public', 'index.html'))
+})
 
 const rulesURL = 'https://api.twitter.com/2/tweets/search/stream/rules'
-const streamURL = 'https://api.twitter.com/2/tweets/search/stream?tweet.field=public_metrics$expansions=author_id'
+const streamURL = 'https://api.twitter.com/2/tweets/search/stream?tweet.fields=public_metrics&expansions=author_id'
 
-const rules = [{value: 'giveaway'}, {value: 'xbox'}]
+const rules = [{value: 'gaming'}, {value: 'tesla'}]
 
 // Get Rules
 async function getRules() {
@@ -15,7 +29,6 @@ async function getRules() {
         },
     })
 
-    console.log(response.body);
     return response.body
 };
 
@@ -59,20 +72,43 @@ async function deleteRules(rules) {
     return response.body
 };
 
-(async() => {
-    let currentRules
+function streamRules() {
+    const stream = needle.get(streamURL, {
+        headers: {
+            Authorization: `Bearer ${TOKEN}`,
+        },
+    })
+
+    stream.on('data', (data) => {
+        try {
+            const json = JSON.parse(data)
+            console.log(json)
+        } catch (error) {}
+    })
+};
+
+io.on('connection', () => {
+    console.log('User connected');
+})
+
+// (async() => {
+//     let currentRules
     
-    try {
-        // Get all rules
-        currentRules = await getRules()
+//     try {
+//         // Get all rules
+//         currentRules = await getRules()
 
-        // Clean all rules
-        await deleteRules(currentRules)
+//         // Clean all rules
+//         await deleteRules(currentRules)
 
-        // Set rules
-        await setRules()
-    } catch (error) {
-        console.error(error)
-        process.exit(1)
-    }
-})()
+//         // Set rules
+//         await setRules()
+//     } catch (error) {
+//         console.error(error)
+//         process.exit(1)
+//     }
+
+//     streamRules()
+// })()
+
+server.listen(PORT, () => console.log(`Listening on port ${PORT}`))
