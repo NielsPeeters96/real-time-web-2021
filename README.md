@@ -84,7 +84,7 @@ Companies can analyze data with selected keywords and use this to see how they a
 
 <!-------------------------- New Paragraph -------------------------->
 
-## 📋 ** Data Life Cycle**
+## 📋 **Data Life Cycle**
 What is my Data Life Cycle and what objects do I use inside my API?
 
 ---
