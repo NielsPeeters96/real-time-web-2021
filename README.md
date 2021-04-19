@@ -84,6 +84,12 @@ Companies can analyze data with selected keywords and use this to see how they a
 
 <!-------------------------- New Paragraph -------------------------->
 
+## 📋 ** Data Life Cycle**
+What is my Data Life Cycle and what objects do I use inside my API?
+
+---
+<!-------------------------- New Paragraph -------------------------->
+
 ## :crown: **Wishlist**
 
 Below is a list of features I'd love to add to Tweety.  
@@ -116,6 +122,11 @@ _These features can be added in the future_
 - [ ] Keywords are shown based on interests
 ---
 
+<!-------------------------- New Paragraph -------------------------->
+## ⏰ **SocketIO**
+How do I use SocketIO?
+
+---
 <!-------------------------- New Paragraph -------------------------->
 
 ## 🔍 **Sources**
