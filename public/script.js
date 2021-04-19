@@ -4,7 +4,7 @@ const socket = io()
 const tweets = []
 
 socket.on('connect', () => {
-  console.log('Connected to server...')
+  
 })
 
 socket.on('tweet', (tweet) => {

@@ -21,7 +21,7 @@ app.get ('/', (req, res) => {
 const rulesURL = 'https://api.twitter.com/2/tweets/search/stream/rules'
 const streamURL = 'https://api.twitter.com/2/tweets/search/stream?tweet.fields=public_metrics&expansions=author_id'
 
-const rules = [{value: 'gaming'}, {value: 'tesla'}]
+const rules = [{value: 'gaming'}]
 
 // Get Rules
 async function getRules() {
@@ -91,8 +91,6 @@ function streamRules(socket) {
 };
 
 io.on('connection', async () => {
-    console.log('User connected');
-
     let currentRules
     
     try {

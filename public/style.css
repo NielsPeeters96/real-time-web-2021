@@ -1,0 +1,32 @@
+:root {
+    --bgc: #264653;
+    --bgc-light: #2A9D8f;
+    --orange: #E76F51;
+    --orange-light: #F4A261;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    color:#db722c;
+    font-family: "raleway";
+    letter-spacing: 0.05em;
+    background-color: bisque;
+    opacity: 0.9;
+    width: 100%;
+    padding-left: 20%;
+    padding-right: 20%
+}
+
+h1 {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 5em;
+    font-weight: 800;
+    text-align: center;
+}
