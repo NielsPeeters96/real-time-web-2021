@@ -2,6 +2,10 @@
 
 ## Tweety
 
+Keywords: Gaming and Tesla
+![image](https://user-images.githubusercontent.com/78353674/115219987-54d53000-a108-11eb-806f-32cbae65d9ee.png)
+
+
 ### Possible ideas:
 
 - Real Time Twitter Feed
@@ -38,7 +42,7 @@ Companies can analyze data with selected keywords and use this to see how they a
 <!-------------------------- New Paragraph -------------------------->
 
 ## 🌐 **Live link**
-
+https://tweetyrtw.herokuapp.com/
 
 ---
 
@@ -87,6 +91,20 @@ Companies can analyze data with selected keywords and use this to see how they a
 ## 📋 **Data Life Cycle**
 What is my Data Life Cycle and what objects do I use inside my API?
 
+API Data:
+```
+{
+   "data": {
+       "id": "1263150595717730305",
+       "public_metrics": {
+           "retweet_count": 12,
+           "reply_count": 14,
+           "like_count": 49,
+           "quote_count": 7
+}
+})
+```
+
 ---
 <!-------------------------- New Paragraph -------------------------->
 
@@ -112,6 +130,7 @@ _These features are wanted, but not necessary for a usable product_
 - [ ] Add nice styling
 - [ ] Create logic
 - [ ] Create user feedback
+- [ ] Make a search bar for a keyword
 
 </br>
 
