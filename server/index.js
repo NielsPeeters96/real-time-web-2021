@@ -12,6 +12,8 @@ const app = express()
 const server = http.createServer(app)
 const io = socketIo(server)
 
+app.use(express.static("public"));
+
 app.get ('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../', 'public', 'index.html'))
 })
@@ -72,7 +74,7 @@ async function deleteRules(rules) {
     return response.body
 };
 
-function streamRules() {
+function streamRules(socket) {
     const stream = needle.get(streamURL, {
         headers: {
             Authorization: `Bearer ${TOKEN}`,
@@ -82,33 +84,32 @@ function streamRules() {
     stream.on('data', (data) => {
         try {
             const json = JSON.parse(data)
-            console.log(json)
+        
+        socket.emit('tweet', json)
         } catch (error) {}
     })
 };
 
-io.on('connection', () => {
+io.on('connection', async () => {
     console.log('User connected');
-})
 
-// (async() => {
-//     let currentRules
+    let currentRules
     
-//     try {
-//         // Get all rules
-//         currentRules = await getRules()
+    try {
+        // Get all rules
+        currentRules = await getRules()
 
-//         // Clean all rules
-//         await deleteRules(currentRules)
+        // Clean all rules
+        await deleteRules(currentRules)
 
-//         // Set rules
-//         await setRules()
-//     } catch (error) {
-//         console.error(error)
-//         process.exit(1)
-//     }
+        // Set rules
+        await setRules()
+    } catch (error) {
+        console.error(error)
+        process.exit(1)
+    }
 
-//     streamRules()
-// })()
+    streamRules(io)
+})
 
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`))
