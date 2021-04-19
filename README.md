@@ -114,7 +114,6 @@ _These features can be added in the future_
 - [ ] Make a login system for different companies
 - [ ] Let companies select interests
 - [ ] Keywords are shown based on interests
-- [ ] 
 ---
 
 <!-------------------------- New Paragraph -------------------------->
