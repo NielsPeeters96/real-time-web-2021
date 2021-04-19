@@ -115,6 +115,7 @@ _These features are wanted, but not necessary for a usable product_
 - [ ] Add nice styling
 - [ ] Create logic
 - [ ] Create user feedback
+- [ ] Make a search bar for a keyword
 
 </br>
 
