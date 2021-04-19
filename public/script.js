@@ -8,7 +8,6 @@ socket.on('connect', () => {
 })
 
 socket.on('tweet', (tweet) => {
-  // console.log(tweet)
   const tweetData = {
     id: tweet.data.id,
     text: tweet.data.text,

@@ -74,6 +74,7 @@ async function deleteRules(rules) {
     return response.body
 };
 
+// Stream Feed
 function streamRules(socket) {
     const stream = needle.get(streamURL, {
         headers: {
