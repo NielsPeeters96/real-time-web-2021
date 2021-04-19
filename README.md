@@ -2,6 +2,9 @@
 
 ## Tweety
 
+![image](https://user-images.githubusercontent.com/78353674/115219987-54d53000-a108-11eb-806f-32cbae65d9ee.png)
+
+
 ### Possible ideas:
 
 - Real Time Twitter Feed
@@ -38,7 +41,7 @@ Companies can analyze data with selected keywords and use this to see how they a
 <!-------------------------- New Paragraph -------------------------->
 
 ## 🌐 **Live link**
-
+https://tweetyrtw.herokuapp.com/
 
 ---
 
