@@ -91,6 +91,20 @@ https://tweetyrtw.herokuapp.com/
 ## 📋 **Data Life Cycle**
 What is my Data Life Cycle and what objects do I use inside my API?
 
+API Data:
+```
+{
+   "data": {
+       "id": "1263150595717730305",
+       "public_metrics": {
+           "retweet_count": 12,
+           "reply_count": 14,
+           "like_count": 49,
+           "quote_count": 7
+}
+})
+```
+
 ---
 <!-------------------------- New Paragraph -------------------------->
 
