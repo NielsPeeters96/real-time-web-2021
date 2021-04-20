@@ -10,6 +10,12 @@
     scroll-behavior: smooth;
 }
 
+@media (max-width: 460px) {
+    body {
+      font-size: 1.5em;
+    }
+}
+
 body {
     display: grid;
     justify-content: center;
@@ -30,3 +36,18 @@ h1 {
     font-weight: 800;
     text-align: center;
 }
+
+#tweetStream.delighter {
+    transition: all .3s ease-out;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+#tweetStream.delighter.started {
+    transform: none;
+    opacity: 1;
+}
+
+#tweetStream.delighter.started.ended {
+    
+  }
