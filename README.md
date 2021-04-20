@@ -1,8 +1,7 @@
 # Real-Time Web @cmda-minor-web · 2020/21
 
-## Tweety
+## Tweety💰
 
-Keywords: Gaming and Tesla
 ![image](https://user-images.githubusercontent.com/78353674/115219987-54d53000-a108-11eb-806f-32cbae65d9ee.png)
 
 
