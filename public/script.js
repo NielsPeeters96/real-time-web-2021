@@ -1,4 +1,5 @@
 const tweetStream = document.getElementById('tweetStream')
+const changeTopic = document.getElementById('buttons')
 const socket = io()
 
 const tweets = []
@@ -30,6 +31,10 @@ socket.on('tweet', (tweet) => {
   tweetStream.appendChild(tweetEl)
 
   setTimeout(() => tweetEl.remove(), 5000)
+})
+
+changeTopic.addEventListener("click", function() {
+  
 })
 
 function hasNetwork(online) {
