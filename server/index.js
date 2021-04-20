@@ -21,7 +21,22 @@ app.get ('/', (req, res) => {
 const rulesURL = 'https://api.twitter.com/2/tweets/search/stream/rules'
 const streamURL = 'https://api.twitter.com/2/tweets/search/stream?tweet.fields=public_metrics&expansions=author_id'
 
-const rules = [{value: 'gaming'}]
+let rules = [{value: 'gaming'}]
+
+      // Rules opzetten op basis van topic
+        // setrules(topic)
+        // if(topic){//}
+        // else{}
+    
+        // '/'
+        // functie() => standaard lijstje
+        // functie(topic)=> lijstje over topic
+        
+        // io.on('connection'){
+        //  basis scenario 
+        //  fetch(standaard)
+        // socket.on('topic', (topic)=>{ fetch(topic); socket.emit('dataArrived', data) })
+
 
 // Get Rules
 async function getRules() {
@@ -75,7 +90,7 @@ async function deleteRules(rules) {
 };
 
 // Stream Feed
-function streamRules(socket) {
+function streamRules(socket, topic) {
     const stream = needle.get(streamURL, {
         headers: {
             Authorization: `Bearer ${TOKEN}`,
@@ -85,13 +100,12 @@ function streamRules(socket) {
     stream.on('data', (data) => {
         try {
             const json = JSON.parse(data)
-        
         socket.emit('tweet', json)
         } catch (error) {}
-    })
+    });
 };
 
-io.on('connection', async () => {
+io.on('connection', async (socket) => {
     let currentRules
     
     try {
@@ -110,9 +124,31 @@ io.on('connection', async () => {
 
     streamRules(io)
 
-    // socket.on('changeTopic', async (topic) => {
+    socket.on('topic', async (topic) => {
+       
         
-    // })
+        let currentRules
+    
+        try {
+            // Get all rules
+            currentRules = await getRules()
+    
+            // Clean all rules
+            await deleteRules(currentRules)
+    
+            // Set rules
+            await setRules()
+        } catch (error) {
+            console.error(error)
+            process.exit(1)
+        }
+        // Rules opzetten op basis van topic
+        // setrules(topic)
+        // if(topic){//}
+        // else{}
+        streamRules(io, topic)
+
+    })
 })
 
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`))

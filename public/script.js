@@ -34,8 +34,9 @@ socket.on('tweet', (tweet) => {
 })
 
 changeTopic.forEach((topic) => {
-  topic.addEventListener("click", () => {
-    console.log(topic.innerText);
+  topic.addEventListener("click", (e) => {
+    socket.emit('topic', e.target.innerText)
+    console.log(e.target.innerText);
   })
 })
 
