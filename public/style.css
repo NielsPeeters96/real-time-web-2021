@@ -37,17 +37,44 @@ h1 {
     text-align: center;
 }
 
-#tweetStream.delighter {
+.card.delighter {
     transition: all .3s ease-out;
     transform: translateX(-100%);
     opacity: 0;
 }
 
-#tweetStream.delighter.started {
+.card.delighter.started {
     transform: none;
     opacity: 1;
 }
 
-#tweetStream.delighter.started.ended {
+.card.delighter.started.ended {
     
-  }
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+
+  border: 1px solid #cccccc;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  
+  font-weight: 800;
+  font-size: 1em;
+  color: #ffffff;
+  opacity: .8;
+  
+  background: #36D8FF;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover {
+    background: #db722c;
+    opacity: .5;
+}

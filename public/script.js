@@ -15,14 +15,14 @@ socket.on('tweet', (tweet) => {
   }
 
   const tweetEl = document.createElement('div')
-  tweetEl.className = 'card my-4'
+  tweetEl.className = 'API'
   tweetEl.innerHTML = `
-      <div class="card-body">
+      <div class="card">
           <h5 class="card-title">${tweetData.text}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${tweetData.username}</h6>
+          <h6 class="card-subtitle">${tweetData.username}</h6>
           
-          <a class="btn btn-primary mt-3" href="https://twitter.com/${tweetData.username}/status/${tweetData.id}">
-              <i class="fab fa-twitter"></i> Go To Tweet    
+          <a class="btn" href="https://twitter.com/${tweetData.username}/status/${tweetData.id}">
+              <i class="twitter"></i> Go To Tweet    
           </a>
       </div>
   `
@@ -31,3 +31,38 @@ socket.on('tweet', (tweet) => {
 
   setTimeout(() => tweetEl.remove(), 5000)
 })
+
+function hasNetwork(online) {
+  const element = document.querySelector(".card");
+
+  if (online) {
+      element.classList.remove("offline");
+      element.classList.add("online");
+      element.innerHTML = `
+      <div class="card">
+          <h5 class="card-title">${tweetData.text}</h5>
+          <h6 class="card-subtitle">${tweetData.username}</h6>
+          
+          <a class="btn" href="https://twitter.com/${tweetData.username}/status/${tweetData.id}">
+              <i class="twitter"></i> Go To Tweet    
+          </a>
+      </div>
+  `
+  } else {
+    element.classList.remove("online");
+    element.classList.add("offline");
+    element.innerText = "Offline";
+  }
+}
+
+window.addEventListener("load", () => {
+  hasNetwork(navigator.online);
+
+  window.addEventListener("online", () => {
+    hasNetwork(true);
+  });
+
+  window.addEventListener("offline", () => {
+    hasNetwork(false);
+  });
+});
