@@ -131,6 +131,8 @@ _These features are wanted, but not necessary for a usable product_
 - [ ] Create logic
 - [ ] Create user feedback
 - [ ] Make a search bar for a keyword
+- [ ] Add Delighter.js
+- [ ] Add Offline page
 
 </br>
 
