@@ -109,6 +109,10 @@ io.on('connection', async () => {
     }
 
     streamRules(io)
+
+    socket.on('changeTopic', async (topic) => {
+        
+    })
 })
 
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`))
