@@ -89,7 +89,11 @@ https://tweetyrtw.herokuapp.com/
 <!-------------------------- New Paragraph -------------------------->
 
 ## 📋 **Data Life Cycle**
-What is my Data Life Cycle and what objects do I use inside my API?
+
+![image](https://user-images.githubusercontent.com/78353674/115397068-f41c2500-a1e5-11eb-8c9d-28a00077db82.png)
+
+
+Below the data I use from the API
 
 API Data:
 ```
