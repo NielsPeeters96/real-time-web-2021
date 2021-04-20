@@ -1,5 +1,5 @@
 const tweetStream = document.getElementById('tweetStream')
-const changeTopic = document.getElementById('buttons')
+const changeTopic = document.querySelectorAll('#buttons button')
 const socket = io()
 
 const tweets = []
@@ -33,41 +33,42 @@ socket.on('tweet', (tweet) => {
   setTimeout(() => tweetEl.remove(), 5000)
 })
 
-changeTopic.addEventListener("click", function() {
-  
+changeTopic.forEach((topic) => {
+  topic.addEventListener("click", () => {
+    console.log(topic.innerText);
+  })
 })
 
-function hasNetwork(online) {
-  const element = document.querySelector(".card");
+// function hasNetwork(online) {
+//   const element = document.querySelector(".card");
 
-  if (online) {
-      element.classList.remove("offline");
-      element.classList.add("online");
-      element.innerHTML = `
-      <div class="card">
-          <h5 class="card-title">${tweetData.text}</h5>
-          <h6 class="card-subtitle">${tweetData.username}</h6>
+//   if (online) {
+//       element.classList.remove("offline");
+//       element.classList.add("online");
+//       element.innerHTML = `
+//       <div class="card">
+//           <h5 class="card-title">${tweetData.text}</h5>
+//           <h6 class="card-subtitle">${tweetData.username}</h6>
           
-          <a class="btn" href="https://twitter.com/${tweetData.username}/status/${tweetData.id}">
-              <i class="twitter"></i> Go To Tweet    
-          </a>
-      </div>
-  `
-  } else {
-    element.classList.remove("online");
-    element.classList.add("offline");
-    element.innerText = "Offline";
-  }
-}
+//           <a class="btn" href="https://twitter.com/${tweetData.username}/status/${tweetData.id}">
+//               <i class="twitter"></i> Go To Tweet    
+//           </a>
+//       </div>
+//   `
+//   } else {
+//     const offlineText = document.getElementById('offline')
+//     offlineText.innerText = "Offline";
+//   }
+// }
 
-window.addEventListener("load", () => {
-  hasNetwork(navigator.online);
+// window.addEventListener("load", () => {
+//   hasNetwork(navigator.online);
 
-  window.addEventListener("online", () => {
-    hasNetwork(true);
-  });
+//   window.addEventListener("online", () => {
+//     hasNetwork(true);
+//   });
 
-  window.addEventListener("offline", () => {
-    hasNetwork(false);
-  });
-});
+//   window.addEventListener("offline", () => {
+//     hasNetwork(false);
+//   });
+// });

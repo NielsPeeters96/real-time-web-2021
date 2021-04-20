@@ -10,17 +10,11 @@
     scroll-behavior: smooth;
 }
 
-@media (max-width: 460px) {
-    body {
-      font-size: 1.5em;
-    }
-}
-
 body {
     display: grid;
     justify-content: center;
     color:#db722c;
-    font-family: "raleway";
+    font-family: "Poppins";
     letter-spacing: 0.05em;
     background-color: bisque;
     opacity: 0.9;
@@ -35,21 +29,7 @@ h1 {
     font-size: 5em;
     font-weight: 800;
     text-align: center;
-}
-
-.card.delighter {
-    transition: all .3s ease-out;
-    transform: translateX(-100%);
-    opacity: 0;
-}
-
-.card.delighter.started {
-    transform: none;
-    opacity: 1;
-}
-
-.card.delighter.started.ended {
-    
+    width: 100%;
 }
 
 .btn {
@@ -77,4 +57,16 @@ h1 {
 .btn:hover {
     background: #db722c;
     opacity: .5;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+#buttons button {
+    font-family: "Poppins";
+    margin: 5px 5px 5px 5px;
+    font-weight: 800;
 }
