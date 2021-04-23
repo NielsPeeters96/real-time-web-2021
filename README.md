@@ -122,16 +122,15 @@ _These features are like requirements for the end product_
 - [x] Connect API
 - [x] Real time feed using SocketIO
 - [x] Add link that directs you to the Twitter message
-- [ ] Adding different keywords
-- [ ] Specific pages for each keyword
+- [x] Adding different keywords
 
 </br>
 
 **S** - Should haves  
 _These features are wanted, but not necessary for a usable product_  
-- [ ] Style Twitter messages
-- [ ] Add nice styling
-- [ ] Create logic
+- [x] Style Twitter messages
+- [x] Add nice styling
+- [x] Create logic
 - [ ] Create user feedback
 - [ ] Make a search bar for a keyword
 - [ ] Add Delighter.js
