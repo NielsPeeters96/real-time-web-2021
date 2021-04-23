@@ -23,21 +23,6 @@ const streamURL = 'https://api.twitter.com/2/tweets/search/stream?tweet.fields=p
 
 let rules = [{value: 'gaming'}]
 
-      // Rules opzetten op basis van topic
-        // setrules(topic)
-        // if(topic){//}
-        // else{}
-    
-        // '/'
-        // functie() => standaard lijstje
-        // functie(topic)=> lijstje over topic
-        
-        // io.on('connection'){
-        //  basis scenario 
-        //  fetch(standaard)
-        // socket.on('topic', (topic)=>{ fetch(topic); socket.emit('dataArrived', data) })
-
-
 // Get Rules
 async function getRules() {
     const response = await needle('get', rulesURL, {
@@ -142,10 +127,7 @@ io.on('connection', async (socket) => {
             console.error(error)
             process.exit(1)
         }
-        // Rules opzetten op basis van topic
-        // setrules(topic)
-        // if(topic){//}
-        // else{}
+
         streamRules(io, topic)
 
     })
