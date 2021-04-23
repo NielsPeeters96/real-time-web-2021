@@ -21,8 +21,6 @@ app.get ('/', (req, res) => {
 const rulesURL = 'https://api.twitter.com/2/tweets/search/stream/rules'
 const streamURL = 'https://api.twitter.com/2/tweets/search/stream?tweet.fields=public_metrics&expansions=author_id'
 
-let rules = [{value: 'gaming'}]
-
 // Get Rules
 async function getRules() {
     const response = await needle('get', rulesURL, {
@@ -35,7 +33,7 @@ async function getRules() {
 };
 
 // Set Rules
-async function setRules() {
+async function setRules(rules) {
     const data = {
         add: rules
     }
@@ -75,24 +73,20 @@ async function deleteRules(rules) {
 };
 
 // Stream Feed
-function streamRules(socket, topic) {
+function getStream() {
     const stream = needle.get(streamURL, {
         headers: {
             Authorization: `Bearer ${TOKEN}`,
         },
     })
 
-    stream.on('data', (data) => {
-        try {
-            const json = JSON.parse(data)
-        socket.emit('tweet', json)
-        } catch (error) {}
-    });
+    return stream
 };
 
 io.on('connection', async (socket) => {
     let currentRules
-    
+    let stream
+
     try {
         // Get all rules
         currentRules = await getRules()
@@ -101,19 +95,18 @@ io.on('connection', async (socket) => {
         await deleteRules(currentRules)
 
         // Set rules
-        await setRules()
     } catch (error) {
         console.error(error)
         process.exit(1)
     }
 
-    streamRules(io)
-
     socket.on('topic', async (topic) => {
        
-        
         let currentRules
-    
+
+    if (stream) {
+        stream.off('data', sendTweets)
+    }
         try {
             // Get all rules
             currentRules = await getRules()
@@ -122,15 +115,24 @@ io.on('connection', async (socket) => {
             await deleteRules(currentRules)
     
             // Set rules
-            await setRules()
+            await setRules([{value: topic}])
+            stream = getStream()
+
+            stream.on('data', sendTweets);
+
         } catch (error) {
             console.error(error)
             process.exit(1)
         }
 
-        streamRules(io, topic)
-
     })
+    function sendTweets(data) {
+            try {
+                const json = JSON.parse(data)
+            socket.emit('tweet', json)
+            } catch (error) {}
+    }
+    
 })
 
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`))
