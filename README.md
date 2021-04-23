@@ -174,6 +174,8 @@ My application creates a server using HTTP then upgrades to sockets when a user 
 
 - Needle (n.d.) Get API data. Retrieved 14 April from https://www.npmjs.com/package/needle
 
+- WebSockets (n.d.) How does it work? Retrieved 15 April from https://thisismodernweb.wordpress.com/2016/06/23/websockets-en-socket-io/
+
 ---
 
 <!-------------------------- New Paragraph -------------------------->
