@@ -148,7 +148,14 @@ _These features can be added in the future_
 
 <!-------------------------- New Paragraph -------------------------->
 ## ⏰ **SocketIO**
+Put simply, it is a new protocol that provides bi-directional communication between the client and server. This makes it possible to open an interactive connection between a user's browser and a server. This API allows messages to be sent to a server and event-based responses to be received, without having to poll the server for a response.
+
+![image](https://user-images.githubusercontent.com/78353674/115842696-5f503c00-a41e-11eb-8dac-eee0519a7c21.png)
+
 How do I use SocketIO?
+
+My application creates a server using HTTP then upgrades to sockets when a user is connected. After that the sockets send real time data back to the server without having to refresh the page.
+
 
 ---
 <!-------------------------- New Paragraph -------------------------->
