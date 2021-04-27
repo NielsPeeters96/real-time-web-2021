@@ -131,7 +131,7 @@ _These features are wanted, but not necessary for a usable product_
 - [x] Style Twitter messages
 - [x] Add nice styling
 - [x] Create logic
-- [ ] Create user feedback
+- [x] Create user feedback
 - [ ] Make a search bar for a keyword
 - [ ] Add Delighter.js
 - [ ] Add Offline page
