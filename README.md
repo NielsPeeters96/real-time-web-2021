@@ -2,7 +2,7 @@
 
 ## Tweety💰
 
-![image](https://user-images.githubusercontent.com/78353674/115219987-54d53000-a108-11eb-806f-32cbae65d9ee.png)
+![image](https://user-images.githubusercontent.com/78353674/116223583-f5060700-a74f-11eb-993c-bb1e73d5e715.png)
 
 
 ### Possible ideas:
